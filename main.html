@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Min</title>
+
+		<link rel="stylesheet" type="text/css" href="css/main.css"/> 
+
+		<script type="text/javascript" src="main.js"></script>
+
+	</head>
+	<body>
+		
+		<div id="top_btn_wrapper">
+
+			<table>
+
+				<tbody>
+
+					<tr>
+
+						<td><input type="button" class="tab_btn" value="선형보간"></td>
+						<td><input type="button" class="tab_btn" value="비율계산"></td>
+						<td><input type="button" class="tab_btn" value="각도계산"></td>
+						<td><input type="button" class="tab_btn" value="경위도계산"></td>
+
+					</tr>
+
+				</tbody>
+			
+			</table>
+
+		</div>
+
+		<div class="contents_wrapper">
+
+			<table class="contents_tbl">
+
+				<tbody>
+
+					<tr>
+						<td style="width: 25%;"><input type="number" id="interp_y3" class="decimal_in" step=".001"></td>
+						<td rowspan="3" colspan="3" style="line-height: 0em;"><img src="img/interp.png" style="width: 90%; height: 90%;"></td>
+					</tr>
+
+					<tr>
+						<td><input type="number" id="interp_y2" class="decimal_in" step=".001"></td>
+					</tr>
+
+					<tr>
+						<td><input type="number" id="interp_y1" class="decimal_in" step=".001"></td>
+					</tr>
+
+					<tr>
+						<td style="width: 25%;"></td style="width: 25%;">
+						<td style="width: 25%;"><input type="number" id="interp_x1" class="decimal_in" step=".001"></td style="width: 25%;">
+						<td style="width: 25%;"><input type="number" id="interp_x2" class="decimal_in" step=".001"></td style="width: 25%;">
+						<td style="width: 25%;"><input type="number" id="interp_x3" class="decimal_in" step=".001"></td style="width: 25%;">
+					</tr>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+		<div class="contents_wrapper" style="display: none;">
+
+			선형보간
+
+		</div>
+
+		<div class="contents_wrapper" style="display: none;">
+
+			각도계산
+
+		</div>
+
+		<div class="contents_wrapper" style="display: none;">
+
+			경위도변환
+
+		</div>
+
+		<div class="calc_btn_wrapper">
+			<input type="button" id="calc_btn" value="계산">
+		</div>
+
+	</body>
+</html>

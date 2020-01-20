@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0em;
+	margin: 0em;
+}
+
+#top_btn_wrapper {
+	height: 10%;
+	text-align: center;
+}
+
+#top_btn_wrapper table {
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+	border-spacing: 0em;
+}
+
+#top_btn_wrapper td {
+	width: 25%;
+}
+
+.tab_btn {
+	width: 100%;
+	height: 100%;
+	background-color: blanchedalmond;
+	border: solid 0.1em wheat;
+	text-align: center;
+	cursor: pointer;
+}
+
+.tab_btn:hover {
+	background-color: wheat;
+}
+
+.contents_wrapper {
+	height: 80%;
+}
+
+.contents_tbl {
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+	border-spacing: 0em;
+	table-layout: fixed;
+	text-align: center;
+}
+
+.decimal_in {
+	width: 90%;
+}
+
+.calc_btn_wrapper {
+	height: 10%;
+	text-align: center;
+}
+
+#calc_btn {
+	width: 100%;
+	height: 100%;
+	background-color: blanchedalmond;
+	border: solid 0.1em wheat;
+	text-align: center;
+	cursor: pointer;
+}
