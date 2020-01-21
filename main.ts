@@ -1,10 +1,11 @@
-let activeTabBtn = 0;
+let activeTabBtn: HTMLInputElement;
 let tabBtns: any = [];
 
 window.onload = function() {
 	const tabBtnsWrapper: HTMLDivElement = <HTMLDivElement>this.document.getElementById("top_btn_wrapper");
 	tabBtns = tabBtnsWrapper.getElementsByTagName("input");
 	activeTabBtn = tabBtns[0];
+	activeTabBtn.style.backgroundColor = "gray";
 
 	const contentsWrappers: any = this.document.getElementsByClassName("contents_wrapper");
 
@@ -15,9 +16,11 @@ window.onload = function() {
 			for ( let j=0 ; j<contentsWrappers.length ; j++ ) {
 				if ( i === j ) {
 					contentsWrappers[j].style.display = "block";
+					tabBtns[j].style.backgroundColor = "gray";
 				}
 				else {
 					contentsWrappers[j].style.display = "none";
+					tabBtns[j].style.backgroundColor = "silver";
 				}
 			}
 		});
@@ -33,6 +36,10 @@ window.onload = function() {
 
 			case tabBtns[1]:
 				calcRatio();
+				break;
+
+			case tabBtns[2]:
+				calcAngle();
 				break;
 
 			default:
@@ -60,28 +67,28 @@ function calcInterpolation() {
 	let xVals: any[] = [];
 	let yVals: any[] = [];
 
-	for ( let intp_in of xInputs ) {
-		if ( 0 !== intp_in.value.length ) {
-			xVals.push(Number(intp_in.value));
+	for ( let intpIn of xInputs ) {
+		if ( 0 !== intpIn.value.length ) {
+			xVals.push(Number(intpIn.value));
 		}
 		else {
 			xVals.push(null);
 			emptyCntX++;
 		}
 
-		inputs.push(intp_in);
+		inputs.push(intpIn);
 	}
 
-	for ( let intp_in of yInputs ) {
-		if ( 0 !== intp_in.value.length ) {
-			yVals.push(Number(intp_in.value));
+	for ( let intpIn of yInputs ) {
+		if ( 0 !== intpIn.value.length ) {
+			yVals.push(Number(intpIn.value));
 		}
 		else {
 			yVals.push(null);
 			emptyCntY++;
 		}
 
-		inputs.push(intp_in);
+		inputs.push(intpIn);
 	}
 
 	if ( 1 !== (emptyCntX + emptyCntY) ) {
@@ -109,9 +116,9 @@ function calcInterpolation() {
 	if ( null === yVals[2] ) {
 		const ret: number = yVals[0] + (yVals[1] - yVals[0]) * (xVals[2] - xVals[0]) / (xVals[1] - xVals[0]);
 
-		for ( let intp_in of inputs ) {
-			if ( 0 === intp_in.value.length ) {
-				intp_in.value = ret.toString();
+		for ( let intpIn of inputs ) {
+			if ( 0 === intpIn.value.length ) {
+				intpIn.value = ret.toString();
 				break;
 			}
 		}
@@ -135,28 +142,28 @@ function calcRatio() {
 	let xVals: any[] = [];
 	let yVals: any[] = [];
 
-	for ( let intp_in of xInputs ) {
-		if ( 0 !== intp_in.value.length ) {
-			xVals.push(Number(intp_in.value));
+	for ( let intpIn of xInputs ) {
+		if ( 0 !== intpIn.value.length ) {
+			xVals.push(Number(intpIn.value));
 		}
 		else {
 			xVals.push(null);
 			emptyCntX++;
 		}
 
-		inputs.push(intp_in);
+		inputs.push(intpIn);
 	}
 
-	for ( let intp_in of yInputs ) {
-		if ( 0 !== intp_in.value.length ) {
-			yVals.push(Number(intp_in.value));
+	for ( let intpIn of yInputs ) {
+		if ( 0 !== intpIn.value.length ) {
+			yVals.push(Number(intpIn.value));
 		}
 		else {
 			yVals.push(null);
 			emptyCntY++;
 		}
 
-		inputs.push(intp_in);
+		inputs.push(intpIn);
 	}
 
 	if ( 1 !== (emptyCntX + emptyCntY) ) {
@@ -182,11 +189,41 @@ function calcRatio() {
 	if ( null === yVals[1] ) {
 		const ret: number = xVals[1] * yVals[0] / xVals[0];
 
-		for ( let intp_in of inputs ) {
-			if ( 0 === intp_in.value.length ) {
-				intp_in.value = ret.toString();
+		for ( let intpIn of inputs ) {
+			if ( 0 === intpIn.value.length ) {
+				intpIn.value = ret.toString();
 				break;
 			}
 		}
 	}
+}
+
+function calcAngle() {
+	const inStrX: string = (<HTMLInputElement>document.getElementById("calc_angle_x")).value;
+	const inStrY: string = (<HTMLInputElement>document.getElementById("calc_angle_y")).value;
+
+	if ( 0 === inStrX.length || 0 === inStrY.length ) {
+		return;
+	}
+
+	const inX: number = Number(inStrX);
+	const inY: number = Number(inStrY);
+	const calcAngleRet1: HTMLElement = <HTMLElement>document.getElementById("calc_angle_ret1");
+	const calcAngleRet2: HTMLElement = <HTMLElement>document.getElementById("calc_angle_ret2");
+
+	const ret1 = inY / inX * 100;
+	const ret2 = Math.atan(inY/inX) * 180 / Math.PI;
+
+	calcAngleRet1.textContent = ret1.toString();
+	calcAngleRet2.textContent = atlong(ret2);
+}
+
+function atlong(x: number) {
+	const data = Math.round(x * 10000);
+	const dosu = Math.floor(x);
+	const min_decimal = data % 10000 * 60 / 10000;
+	const min = Math.floor(min_decimal);
+	const sec = Math.floor(min_decimal * 10000 % 10000 * 60 / 10000);
+
+	return dosu + "도 " + min + "분 " + sec + "초";
 }

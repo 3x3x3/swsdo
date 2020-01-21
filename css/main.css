@@ -38,13 +38,14 @@ html, body {
 	height: 100%;
 	border-collapse: collapse;
 	border-spacing: 0em;
-	table-layout: fixed;
 	text-align: center;
+	overflow: hidden;
 }
 
 .decimal_in {
 	width: 90%;
 	height: 90%;
+	max-height: 3em;
 }
 
 .calc_btn_wrapper {
@@ -71,6 +72,13 @@ input[type=button]:hover {
 
 #interp_img {
 	background-image: url("../img/interp.png");
+	background-repeat: no-repeat;
+	background-size: 90% 90%;
+	background-position: center center;
+}
+
+#calc_angle_img {
+	background-image: url("../img/triangle.png");
 	background-repeat: no-repeat;
 	background-size: 90% 90%;
 	background-position: center center;

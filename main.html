@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="content-script-type" content="text/javascript">
+		<meta http-equiv="content-style-type" content="text/css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Expires" CONTENT="-1">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 		<title>Min</title>
 
 		<link rel="stylesheet" type="text/css" href="css/main.css"/> 
@@ -51,10 +59,10 @@
 					</tr>
 
 					<tr style="height: 25%;">
-						<td style="width: 25%;"></td style="width: 25%;">
-						<td style="width: 25%;"><input type="number" id="interp_x1" class="decimal_in" step=".001"></td style="width: 25%;">
-						<td style="width: 25%;"><input type="number" id="interp_x2" class="decimal_in" step=".001"></td style="width: 25%;">
-						<td style="width: 25%;"><input type="number" id="interp_x3" class="decimal_in" step=".001"></td style="width: 25%;">
+						<td style="width: 25%;"></td>
+						<td style="width: 25%;"><input type="number" id="interp_x1" class="decimal_in" step=".001"></td>
+						<td style="width: 25%;"><input type="number" id="interp_x2" class="decimal_in" step=".001"></td>
+						<td style="width: 25%;"><input type="number" id="interp_x3" class="decimal_in" step=".001"></td>
 					</tr>
 
 				</tbody>
@@ -70,15 +78,13 @@
 				<tbody>
 
 					<tr>
-
 						<td style="width: 23%;"><input type="number" id="calc_ratio_x1" class="decimal_in" step=".001"></td>
-						<td style="width: 2%;">:</td style="width: 20%;">
-						<td style="width: 23%;"><input type="number" id="calc_ratio_x2" class="decimal_in" step=".001"></td style="width: 20%;">
-						<td style="width: 4%;">=</td style="width: 20%;">
-						<td style="width: 23%;"><input type="number" id="calc_ratio_y1" class="decimal_in" step=".001"></td style="width: 20%;">
-						<td style="width: 2%;">:</td style="width: 20%;">
-						<td style="width: 23%;"><input type="number" id="calc_ratio_y2" class="decimal_in" step=".001"></td style="width: 20%;">
-
+						<td style="width: 2%;">:</td>
+						<td style="width: 23%;"><input type="number" id="calc_ratio_x2" class="decimal_in" step=".001"></td>
+						<td style="width: 4%;">=</td>
+						<td style="width: 23%;"><input type="number" id="calc_ratio_y1" class="decimal_in" step=".001"></td>
+						<td style="width: 2%;">:</td>
+						<td style="width: 23%;"><input type="number" id="calc_ratio_y2" class="decimal_in" step=".001"></td>
 					</tr>
 
 				</tbody>
@@ -89,7 +95,30 @@
 
 		<div class="contents_wrapper" style="display: none;">
 
-			각도계산
+			<table class="contents_tbl">
+
+				<tbody>
+
+					<tr style="height: 60%;">
+						<td colspan="2" id="calc_angle_img"></td>
+						<td colspan="2"><input type="number" id="calc_angle_y" class="decimal_in" step=".001" placeholder="y값"></td>
+					</tr>
+
+					<tr style="height: 20%;">
+						<td colspan="2"><input type="number" id="calc_angle_x" class="decimal_in" step=".001" placeholder="x값"></td>
+						<td colspan="2"></td>
+					</tr>
+
+					<tr style="height: 20%;">
+						<td style="width: 15%;">경사도:</td>
+						<td style="width: 35%;" id="calc_angle_ret1"></td>
+						<td style="width: 15%;">경사각:</td>
+						<td style="width: 35%;" id="calc_angle_ret2"></td>
+					</tr>
+
+				</tbody>
+
+			</table>
 
 		</div>
 
