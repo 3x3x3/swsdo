@@ -26,8 +26,17 @@ window.onload = function() {
 	const calcBtn: HTMLInputElement = <HTMLInputElement>this.document.getElementById("calc_btn");
 
 	calcBtn.addEventListener("click", function () {
-		if ( tabBtns[0] === activeTabBtn ) {
-			calcInterpolation();
+		switch (activeTabBtn) {
+			case tabBtns[0]:
+				calcInterpolation();
+				break;
+
+			case tabBtns[1]:
+				calcRatio();
+				break;
+
+			default:
+				break;
 		}
 	});
 }
@@ -98,13 +107,86 @@ function calcInterpolation() {
 	}
 
 	if ( null === yVals[2] ) {
-		yVals[2] = yVals[0] + (yVals[1] - yVals[0]) * (xVals[2] - xVals[0]) / (xVals[1] - xVals[0]);
+		const ret: number = yVals[0] + (yVals[1] - yVals[0]) * (xVals[2] - xVals[0]) / (xVals[1] - xVals[0]);
 
 		for ( let intp_in of inputs ) {
 			if ( 0 === intp_in.value.length ) {
-				intp_in.value = yVals[2];
+				intp_in.value = ret.toString();
 				break;
 			}
 		}
 	}
-}	
+}
+
+function calcRatio() {
+	const xInputs: HTMLInputElement[] = [
+		<HTMLInputElement>document.getElementById("calc_ratio_x1"),
+		<HTMLInputElement>document.getElementById("calc_ratio_x2")
+	]
+
+	const yInputs: HTMLInputElement[] = [
+		<HTMLInputElement>document.getElementById("calc_ratio_y1"),
+		<HTMLInputElement>document.getElementById("calc_ratio_y2")
+	]
+
+	let inputs: HTMLInputElement[] = [];
+	let emptyCntX: number = 0;
+	let emptyCntY: number = 0;
+	let xVals: any[] = [];
+	let yVals: any[] = [];
+
+	for ( let intp_in of xInputs ) {
+		if ( 0 !== intp_in.value.length ) {
+			xVals.push(Number(intp_in.value));
+		}
+		else {
+			xVals.push(null);
+			emptyCntX++;
+		}
+
+		inputs.push(intp_in);
+	}
+
+	for ( let intp_in of yInputs ) {
+		if ( 0 !== intp_in.value.length ) {
+			yVals.push(Number(intp_in.value));
+		}
+		else {
+			yVals.push(null);
+			emptyCntY++;
+		}
+
+		inputs.push(intp_in);
+	}
+
+	if ( 1 !== (emptyCntX + emptyCntY) ) {
+		return;
+	}
+
+	if ( null === xVals[0] || null == yVals[0] ) {
+		let bufferX: any = xVals[0];
+		let bufferY: any = yVals[0];
+		xVals[0] = xVals[1];
+		yVals[0] = yVals[1];
+		xVals[1] = bufferX;
+		yVals[1] = bufferY;
+	}
+
+	// 비어있는게 X라면 Y랑 바꿔서 계산하자
+	if ( 1 === emptyCntX ) {
+		let buffer = xVals;
+		xVals = yVals;
+		yVals = buffer;
+	}
+
+	if ( null === yVals[1] ) {
+		const ret: number = xVals[1] * yVals[0] / xVals[0];
+
+		for ( let intp_in of inputs ) {
+			if ( 0 === intp_in.value.length ) {
+				intp_in.value = ret.toString();
+				break;
+			}
+		}
+	}
+}
