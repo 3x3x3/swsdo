@@ -46,6 +46,18 @@ window.onload = function () {
                 break;
         }
     });
+    var openManualDlgBtns = this.document.getElementsByClassName("open_manual_dlg_btn");
+    for (var i = 0; i < openManualDlgBtns.length; i++) {
+        openManualDlgBtns[i].addEventListener("click", function () {
+            var manualDlgWrapper = document.getElementById("manual_dlg_wrapper");
+            manualDlgWrapper.style.display = "block";
+        });
+    }
+    var closeManualDlgBtn = this.document.getElementById("close_manual_dlg_btn");
+    closeManualDlgBtn.addEventListener("click", function () {
+        var manualDlgWrapper = document.getElementById("manual_dlg_wrapper");
+        manualDlgWrapper.style.display = "none";
+    });
 };
 function calcInterpolation() {
     var xInputs = [

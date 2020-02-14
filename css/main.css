@@ -3,20 +3,22 @@
 html, body {
 	width: 100%;
 	height: 100%;
-	max-width: 370px;
+	max-width: 400px;
 	max-height: 600px;
 	min-height: 300px;
 	padding: 0em;
 	margin: 0em;
 	background-color: rgb(235, 235, 235);
-	font-size: 10px;
+	font-size: 12px;
+	word-break: keep-all;
+	white-space: normal;
 }
 
 select {
 	width: 100%;
 	height: 100%;
 	max-height: 3em;
-	font-size: 10px;
+	font-size: 1em;
 	box-sizing: border-box;
 }
 
@@ -45,6 +47,7 @@ table {
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
+	white-space: normal;
 }
 
 .contents_wrapper {
@@ -83,7 +86,7 @@ table {
 }
 
 input {
-	font-size: 10px;
+	font-size: 1em;
 }
 
 input[type=button] {
@@ -110,4 +113,47 @@ input[type=button]:hover {
 	background-repeat: no-repeat;
 	background-size: 90% 90%;
 	background-position: center center;
+}
+
+.open_manual_dlg_btn {
+	height: 90%;
+	width: 80%;
+	box-sizing: border-box;
+}
+
+#manual_dlg_wrapper {
+	z-index: 96;
+    pointer-events: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#manual_dlg {
+	z-index: 97;
+	position: fixed;
+	top: 20px;
+	bottom: 20px;
+	max-height: 560px;
+	left: 20px;
+	right: 20px;
+	max-width: 360px;
+	background-color: white;
+}
+
+#manual_dlg table {
+	width: 100%;
+	height: 100%;
+}
+
+#manual_dlg th {
+	text-align: center;
+	border: solid 1px gray;
+}
+
+#manual_dlg td {
+	border: solid 1px gray;
 }

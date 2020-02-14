@@ -54,6 +54,22 @@ window.onload = function() {
 				break;
 		}
 	});
+
+	const openManualDlgBtns = this.document.getElementsByClassName("open_manual_dlg_btn");
+
+	for ( let i=0 ; i<openManualDlgBtns.length ; i++ ) {
+		openManualDlgBtns[i].addEventListener("click", function () {
+			const manualDlgWrapper: HTMLInputElement = <HTMLInputElement>document.getElementById("manual_dlg_wrapper");
+			manualDlgWrapper.style.display = "block";
+		});
+	}
+
+	const closeManualDlgBtn: HTMLInputElement = <HTMLInputElement>this.document.getElementById("close_manual_dlg_btn");
+	
+	closeManualDlgBtn.addEventListener("click", function () {
+		const manualDlgWrapper: HTMLInputElement = <HTMLInputElement>document.getElementById("manual_dlg_wrapper");
+		manualDlgWrapper.style.display = "none";
+	});
 }
 
 function calcInterpolation() {
