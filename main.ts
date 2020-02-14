@@ -35,11 +35,11 @@ window.onload = function() {
 				break;
 
 			case tabBtns[1]:
-				calcRatio();
+				calcAngle();
 				break;
 
 			case tabBtns[2]:
-				calcAngle();
+				calcRatio();
 				break;
 
 			case tabBtns[3]:

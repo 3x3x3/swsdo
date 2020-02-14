@@ -31,10 +31,10 @@ window.onload = function () {
                 calcInterpolation();
                 break;
             case tabBtns[1]:
-                calcRatio();
+                calcAngle();
                 break;
             case tabBtns[2]:
-                calcAngle();
+                calcRatio();
                 break;
             case tabBtns[3]:
                 calcTmToLl();

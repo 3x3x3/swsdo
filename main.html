@@ -27,10 +27,10 @@
 					<tr>
 
 						<td><input type="button" class="tab_btn" value="선형보간"></td>
-						<td><input type="button" class="tab_btn" value="비율계산"></td>
 						<td><input type="button" class="tab_btn" value="각도계산"></td>
-						<td><input type="button" class="tab_btn" value="TM→경위도"></td>
-						<td><input type="button" class="tab_btn" value="경위도→TM"></td>
+						<td><input type="button" class="tab_btn" value="비율계산"></td>
+						<td><input type="button" class="tab_btn" value="TM ▶ 경위도"></td>
+						<td><input type="button" class="tab_btn" value="경위도 ▶ TM"></td>
 
 					</tr>
 
@@ -39,6 +39,7 @@
 			</table>
 
 		</div>
+
 
 		<div class="contents_wrapper">
 
@@ -72,27 +73,6 @@
 
 		</div>
 
-		<div class="contents_wrapper" style="display: none;">
-
-			<table class="contents_tbl">
-
-				<tbody>
-
-					<tr>
-						<td style="width: 23%;"><input type="number" id="calc_ratio_x1" class="decimal_in" step=".001"></td>
-						<td style="width: 2%;">:</td>
-						<td style="width: 23%;"><input type="number" id="calc_ratio_x2" class="decimal_in" step=".001"></td>
-						<td style="width: 4%;">=</td>
-						<td style="width: 23%;"><input type="number" id="calc_ratio_y1" class="decimal_in" step=".001"></td>
-						<td style="width: 2%;">:</td>
-						<td style="width: 23%;"><input type="number" id="calc_ratio_y2" class="decimal_in" step=".001"></td>
-					</tr>
-
-				</tbody>
-
-			</table class="contents_tbl">
-
-		</div>
 
 		<div class="contents_wrapper" style="display: none;">
 
@@ -122,6 +102,30 @@
 			</table>
 
 		</div>
+
+
+		<div class="contents_wrapper" style="display: none;">
+
+			<table class="contents_tbl">
+
+				<tbody>
+
+					<tr>
+						<td style="width: 23%;"><input type="number" id="calc_ratio_x1" class="decimal_in" step=".001"></td>
+						<td style="width: 2%;">:</td>
+						<td style="width: 23%;"><input type="number" id="calc_ratio_x2" class="decimal_in" step=".001"></td>
+						<td style="width: 4%;">=</td>
+						<td style="width: 23%;"><input type="number" id="calc_ratio_y1" class="decimal_in" step=".001"></td>
+						<td style="width: 2%;">:</td>
+						<td style="width: 23%;"><input type="number" id="calc_ratio_y2" class="decimal_in" step=".001"></td>
+					</tr>
+
+				</tbody>
+
+			</table class="contents_tbl">
+
+		</div>
+
 
 		<div class="contents_wrapper" style="display: none;">
 
@@ -230,6 +234,7 @@
 
 		</div>
 
+
 		<div class="contents_wrapper" style="display: none;">
 
 			<table class="contents_tbl">
@@ -319,14 +324,20 @@
 					<td colspan="2" id="ll_to_tm_y"></td>
 				</tr>
 
+				<tr><td colspan="3">&nbsp;</td></tr>
+				<tr><td colspan="3">&nbsp;</td></tr>
+				<tr><td colspan="3">&nbsp;</td></tr>
+
 			</table>
 
 		</div>
+
 
 		<div class="calc_btn_wrapper">
 			<input type="button" id="calc_btn" value="계산">
 		</div>
 
+		
 		<div id="manual_dlg_wrapper" style="display: none;">
 			<div id="manual_dlg">
 				<div style="height: 100%;">
